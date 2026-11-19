@@ -22,8 +22,9 @@
             <tr>
                 <td>
                     <form action="cart" method="post">
+                        <input type="hidden" name="action" value="update">
                         <input type="hidden" name="productCode" value="<c:out value='${item.product.code}'/>">
-                        <input type="text" name="quantity" value="<c:out value='${item.quantity}'/>" id="quantity">
+                        <input type="number" name="quantity" value="<c:out value='${item.quantity}'/>" id="quantity">
                         <input type="submit" value="Update">
                     </form>
                 </td>

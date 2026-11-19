@@ -24,7 +24,7 @@ public class CartServlet extends HttpServlet {
 
         if (action.equals("shop")) {
             url = "/index.html";
-        } else if (action.equals("cart")) {
+        } else if (action.equals("cart")||action.equals("update")) {
             String productCode = request.getParameter("productCode");
             String quantityString = request.getParameter("quantity");
 
@@ -67,10 +67,12 @@ public class CartServlet extends HttpServlet {
                 lineItem.setProduct(product);
                 lineItem.setQuantity(quantity);
 
-                if (quantity > 0) {
-                    cart.addItem(lineItem);
-                } else if (quantity == 0) {
+                if (quantity == 0) {
                     cart.removeItem(lineItem);
+                } else if (action.equals("update")) {
+                    cart.updateItem(lineItem);
+                }else{
+                    cart.addItem(lineItem);
                 }
             }
 
@@ -78,6 +80,12 @@ public class CartServlet extends HttpServlet {
             url = "/cart.jsp";
         } else if (action.equals("checkout")) {
             url = "/checkout.jsp";
+        } else if (action.equals("checkout")) {
+            url = "/checkout.jsp";
+        } else if (action.equals("cancel")) {
+            HttpSession session = request.getSession();
+            session.removeAttribute("cart"); // Xóa sạch giỏ hàng khỏi Session
+            url = "/index.html";
         }
 
         sc.getRequestDispatcher(url).forward(request, response);
