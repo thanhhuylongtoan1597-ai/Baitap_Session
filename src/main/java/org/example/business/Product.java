@@ -6,28 +6,28 @@ import java.util.Locale;
 
 public class Product implements Serializable {
 
-    private String code;
+    private String id;
     private String description;
     private double price;
 
     public Product() {
-        code = "";
+        id = "";
         description = "";
         price = 0;
     }
 
     public Product(String code, String description, double price) {
-        this.code = code;
+        this.id = code;
         this.description = description;
         this.price = price;
     }
 
-    public String getCode() {
-        return code;
+    public String getid() {
+        return id;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setid(String code) {
+        this.id = id;
     }
 
     public String getDescription() {

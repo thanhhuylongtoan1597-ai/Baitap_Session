@@ -23,7 +23,7 @@
                 <td>
                     <form action="cart" method="post">
                         <input type="hidden" name="action" value="update">
-                        <input type="hidden" name="productCode" value="<c:out value='${item.product.code}'/>">
+                        <input type="hidden" name="productCode" value="<c:out value='${item.product.id}'/>">
                         <input type="number" name="quantity" value="<c:out value='${item.quantity}'/>" id="quantity">
                         <input type="submit" value="Update">
                     </form>
@@ -33,7 +33,7 @@
                 <td class="right">${item.totalCurrencyFormat}</td>
                 <td>
                     <form action="cart" method="post">
-                        <input type="hidden" name="productCode" value="<c:out value='${item.product.code}'/>">
+                        <input type="hidden" name="productCode" value="<c:out value='${item.product.id}'/>">
                         <input type="hidden" name="quantity" value="0">
                         <input type="submit" value="Remove Item">
                     </form>
